@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "google-sheets": {
+      "source": "vm0-ai/vm0-skills",
+      "sourceType": "github",
+      "computedHash": "1ab21b1fb19a44bcb99451cc7c582bf7078108f09116a1935caea7c883240fdf"
+    },
     "telegram-bot-builder": {
       "source": "sickn33/antigravity-awesome-skills",
       "sourceType": "github",

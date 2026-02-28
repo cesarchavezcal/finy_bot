@@ -52,8 +52,24 @@ export default {
 };
 ```
 
+## 🤖 Agentic Capabilities
+
+This project is enhanced with agentic skills and workflows to assist in development and management.
+
+### 🛠️ Skills
+The following skills are installed in `.agents/skills/`:
+- **google-sheets**: Enables the bot to read, write, and manage financial data programmatically using the Google Sheets API.
+- **telegram-bot-builder**: Provides expertise in building and optimizing Telegram bots.
+
+### 🚀 Workflows
+Workflows are defined in `.agents/workflows/` and can be triggered via slash commands (e.g., `/add-command`):
+- `/add-command`: Guided steps for adding a new bot command.
+- `/setup-finance-bot`: Procedures for configuring and managing the Google Sheets integration.
+
 ## 🧪 Verification
 The bot has been verified to be working on Railway. Commands currently active:
 - `/start`: Initializes interaction.
 - `/help`: Lists all available commands with usage details.
 - `/8ball`: Provides random answers to user questions.
+- `/add`: (Pending) Log expenses/income to Google Sheets.
+- `/balance`: (Pending) View financial summary.
