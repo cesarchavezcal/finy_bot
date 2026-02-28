@@ -25,16 +25,26 @@ async function start() {
     .readdirSync(commandFilesDir)
     .filter((file) => file.endsWith(".js"));
 
+  const commands = [];
   for (const file of commandFiles) {
-    const command = await import(path.join(commandFilesDir, file));
-    bot.command(command.default.name, command.default.handler);
+    const commandModule = await import(path.join(commandFilesDir, file));
+    const command = commandModule.default;
 
-    if (command.default.alias) {
-      for (const alias of command.default.alias) {
-        bot.command(alias, command.default.handler);
+    bot.command(command.name, command.handler);
+    commands.push({ command: command.name, description: command.description });
+
+    if (command.alias) {
+      for (const alias of command.alias) {
+        bot.command(alias, command.handler);
       }
     }
+
+    if (command.callbackQueryHandler) {
+      bot.on("callback_query:data", (ctx, next) => command.callbackQueryHandler(ctx, next));
+    }
   }
+
+  await bot.api.setMyCommands(commands);
 
   bot.catch((err) => {
     const ctx = err.ctx;
