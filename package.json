@@ -14,6 +14,8 @@
     "@roziscoding/grammy-autoquote": "^2.0.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
+    "google-spreadsheet": "^5.2.0",
+    "googleapis": "^171.4.0",
     "grammy": "^1.17.2",
     "path": "^0.12.7"
   },
